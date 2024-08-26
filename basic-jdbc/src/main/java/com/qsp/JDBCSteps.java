@@ -9,7 +9,5 @@ public class JDBCSteps {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
