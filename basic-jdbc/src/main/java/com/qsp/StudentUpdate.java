@@ -6,34 +6,38 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class StudentInsert {
+public class StudentUpdate {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		String jdbcUrl = "jdbc:postgresql://localhost:5432/qsp";
         String username = "postgres";
         String password = "m";
         
-		Scanner sc = new Scanner(System.in);
 		try {
 			Class.forName("org.postgresql.Driver");
+			System.out.println("driver class is loaded");
+			
 			Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO student VALUES(?,?)");
+			System.out.println("Connection created");
+			
+			PreparedStatement ps = conn.prepareStatement("UPDATE student SET name=? WHERE id=?");
 			System.out.print("Enter id: ");
-			ps.setInt(1, sc.nextInt());
+			ps.setInt(2, sc.nextInt());
 			System.out.println("Enter name: ");
-			ps.setString(2, sc.next());
+			ps.setString(1, sc.next());
 			ps.execute();
 			System.out.println("Inserted");
-			conn.close();
-			sc.close();
-		} catch (ClassNotFoundException e) {
 			
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			conn.close();
+			System.out.println("Connection close");
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		
+	}
 
 	}
 
-}
