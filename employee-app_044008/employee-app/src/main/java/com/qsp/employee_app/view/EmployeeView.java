@@ -1,15 +1,14 @@
-package com.qsp.employeeApp.view;
+package com.qsp.employee_app.view;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.qsp.employeeApp.controller.EmployeeController;
-import com.qsp.employeeApp.model.Employee;
+import com.qsp.employee_app.controller.EmployeeController;
+import com.qsp.employee_app.model.Employee;
 
 public class EmployeeView {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		EmployeeController controller = new EmployeeController();
 		do {
@@ -88,7 +87,5 @@ public class EmployeeView {
 			}
 			System.out.println("enter y to continue");
 		} while (sc.next().equalsIgnoreCase("y"));
-		sc.close();
 	}
-	
 }
