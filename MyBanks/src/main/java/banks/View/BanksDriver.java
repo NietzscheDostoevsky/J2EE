@@ -27,7 +27,6 @@ public class BanksDriver {
 				bank.setId(sc.nextInt());
 				System.out.println("enter name");
 				bank.setName(sc.next());
-
 				controller.addBank(bank);
 				System.out.println("Bank added");
 			}
